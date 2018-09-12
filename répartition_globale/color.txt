@@ -1,4 +1,4 @@
-rouge : 15
+rouge : 10
 couleur : 100
 clarté : 100
 lumière : -10
