@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<!-- Load c3.css -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.7/c3.css" rel="stylesheet">
+
+<!-- Load d3.js and c3.js -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://c3js.org/js/c3.min-5f1d26d2.js"></script>
+<div id="chart"></div>
+<script>
+var chart = c3.generate({
+    size: {
+        height: 600,
+        width: 1200
+    },
+    bindto: '#chart',
+    data: {
+	      columns: [
+['Professions TIC en dehors du secteur',0.28,0.31,0.22,0.25,0.33,0.25,0.30,0.33,0.31,0.23,0.32,0.23,0.22,0.29,0.23,0.25,0.25],
+["Professions TIC dans le secteur",0.24,0.22,0.24,0.25,0.23,0.17,0.16,0.21,0.20,0.17,0.17,0.19,0.17,0.18,0.16,0.19,0.17],
+["Professions non-TIC dans le secteur",0.27,0.26,0.26,0.27,0.26,0.28,0.28,0.27,0.23,0.28,0.27,0.24,0.25,0.20,0.26,0.23,0.25]
+
+			],
+	   colors:{
+
+	      	Treatment1: '#b96554',
+	      	Treatment2: '#66cdaa',
+			Treatment3: '#d3ffce',
+			
+        },
+	    type: 'spline',
+	    area: {
+			zerobased: false
+		}
+    },
+    axis: {
+        x: {
+            type:'category',
+            label : 'Années',
+            categories:['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009','2010', '2011', '2012',
+'2013', '2014', '2015', '2016'] 
+},
+        y: {
+        		label : "Nb. de femmes pour 1 homme",
+            max: 0.4
+            // Range includes padding, set 0 if no padding needed
+            // padding: {top:0, bottom:0}
+        }
+}       
+});
+
+d3.select("svg").append("text")
+    .attr("x", 450 )
+    .attr("y", 20)
+    .style("text-anchor", "middle")
+    .text("Évolution de la proportion hommes-femmes en technologie de l'information (TIC) au Québec, 2000-2016")
+    
+
+
+  	
+
+
+
+
+</script>
+</body>
+</html>
