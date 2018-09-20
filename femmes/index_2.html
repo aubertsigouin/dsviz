@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+.c3-axis-y-label {font:16px sans-serif;}
+.c3-axis-y2-label {font:16px sans-serif;}
+.c3-axis-x-label {font:16px sans-serif;}
+;
+
+
+;
+</style>
+<body>
+
+<!-- Load c3.css -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.7/c3.css" rel="stylesheet">
+
+<!-- Load d3.js and c3.js -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://c3js.org/js/c3.min-5f1d26d2.js"></script>
+<div id="chart"></div>
+<script>
+var chart = c3.generate({
+    size: {
+        height: 600,
+        width: 1200
+    },
+    bindto: '#chart',
+    data: {
+        columns: [
+
+//  ["0131 Directeurs d'entreprises de télécommunications",1.5,1.6,0,0,1.8,1.5,0,0,0,0,0,0,0,1.6,0,0,0,0],
+  ['0213 Gestionnaires des systèmes informatiques',1.8,1.8,0,2.4,0,0,0,1.9,2.6,2.2,2.2,1.7,2.5,3,0,2.5,3.7,3.7],
+//  ['2133 Ingénieurs électriciens et électroniciens',0,0,0,1.6,0,1.6,0,0,1.5,0,0,0,0,0,0,0,0,0],
+// ['2147 Ingénieurs informaticiens (sauf ingénieurs et concepteurs en logiciel)',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+//  ['2171 Analystes et consultants en informatique',8.2,10.2,9.7,8.3,9,7.9,9.3,15.1,10.3,8.3,11.8,8.9,12.3,11.8,9.2,13.3,12.1,12.1],
+//  ['2172 Analystes de bases de données et administrateurs de données',0,0,0,0,0,0,0,0,1.9,0,2.6,0,0,3,2.5,2.4,1.8,0],
+//  ['2173 Ingénieurs et concepteurs en logiciel',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+//  ['2174 Programmeurs et développeurs en médias interactifs',7.5,4.8,5.2,4.8,6.4,3.7,3.1,3.7,5.6,2.1,4.9,5.5,3.5,3.9,4.2,5.9,5.2,7.5],
+  ['2175 Concepteurs et développeurs Web',0,0,0,0,0,0,0,0,2,1.6,3.1,1.7,2.2,2.5,1.8,2,2.6,2.9],
+//  ['2241 Technologues et techniciens en génie électronique et électrique',0,0,0,0,2.3,1.5,0,0,0,0,0,1.5,0,0,0,0,0,0],
+  ['2281 Techniciens de réseau informatique',3,2.2,2.6,1.7,2.2,0,0,2.2,0,0,2.5,1.6,2.5,3.1,2.1,4.6,1.9,4.5],
+  ['2282 Agents de soutien aux utilisateurs',0,0,0,0,1.7,3.5,5,4.4,4.8,5.2,4.1,4.5,4.3,5.5,5.3,6,6,5.2],
+//  ['2283 Évaluateurs de systèmes informatiques',0,0,0,0,0,0,0,0,0,1.9,0,0,0,0,0,0,0,0],
+//  ['5121 Auteurs. rédacteurs et écrivains',0,2.8,3.1,1.7,3.1,1.6,2.5,2.3,1.5,4.2,0,0,3.4,2.1,3.5,4,2.5,2.5],
+//  ['5223 Techniciens en graphisme',0,0,0,0,0,0,0,0,1.9,0,0,0,0,0,0,0,0,2.2],
+//  ['5241 Designers graphiques et illustrateurs',7.1,5.4,7.7,5.8,6.9,7.2,7.4,8.3,8.1,7.7,6.9,9.3,11,9.1,15.3,9.7,12.1,8.5]
+//  ['7202 Entrepreneurs et contremaîtres en électricité et en télécommunications',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+//  ['7245 Monteurs de lignes et de câbles de télécommunications',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+//  ['7246 Installateurs et réparateurs de matériel de télécommunications',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+//  ["7247 Techniciens en montage et en entretien d'installations de câblodistribution",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+//  ['9222 Surveillants dans la fabrication de matériel électronique',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+//  ['9523 Assembleurs, monteurs, contrôleurs et vérificateurs de matériel électronique',6.9,4.1,2.4,4.6,3.7,2.4,3.6,3.6,2.7,1.8,2.4,4.4,3.8,3.3,3.5,3.1,1.5,2.9]
+
+  
+
+],
+	   colors:{
+
+	      	Treatment1: '#b96554',
+	      	Treatment2: '#66cdaa',
+			Treatment3: '#d3ffce',
+			Treatment4: '#d3eefg',
+			
+        },
+	    type: 'spline',
+	    area: {
+			zerobased: false
+		}
+    },
+    axis: {
+        x: {
+            type:'category',
+            label : 'Années',
+            categories:['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009','2010', '2011', '2012',
+'2013', '2014', '2015', '2016'] 
+},
+        y: {
+        		label : "Milliers"
+            // Range includes padding, set 0 if no padding needed
+            // padding: {top:0, bottom:0}
+        }
+}       
+});
+
+
+
+
+
+
+</script>
+</body>
+</html>

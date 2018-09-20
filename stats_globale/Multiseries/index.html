@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="multiline.css">
+<script src="http://eligrey.com/demos/FileSaver.js/Blob.js"></script>
+<script src="http://eligrey.com/demos/FileSaver.js/FileSaver.js"></script>
+    <script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+    <!--<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>-->
+</head>
+<body>
+<button id='generate'>Export my D3 visualization to PNG</button>
+<div class="chart-wrapper" id="chart-line1"></div>
+
+<script type="text/javascript">
+    d3.csv('multiline_data.csv', function(error, data) {
+    data.forEach(function (d) {
+        d.year = +d.year;
+        d.variableA = +d.variableA;
+        d.variableB = +d.variableB;
+        d.variableC = +d.variableC;
+    });
+
+    var chart = makeLineChart(data, 'year', {
+        'Emplois en TIC (toute industrie)': {column: 'variableA'},
+        'Tous les emplois (industrie en TIC)': {column: 'variableB'},
+        'Emplois en TIC (industrie en TIC)': {column: 'variableC'}
+    }, {xAxis: 'Années', yAxis: 'Nombre de professionnels'});
+    chart.bind("#chart-line1");
+    chart.render();
+
+});
+
+d3.select("#generate")
+    .on("click", writeDownloadLink);
+
+function writeDownloadLink(){
+    try {
+        var isFileSaverSupported = !!new Blob();
+    } catch (e) {
+        alert("blob not supported");
+    }
+
+    var html = d3.select("chartObj.svg")
+        .attr("title", "test2")
+        .attr("version", 1.1)
+        .attr("xmlns", "http://www.w3.org/2000/svg")
+        .node().parentNode.innerHTML;
+
+    var blob = new Blob([html], {type: "image/svg+xml"});
+    saveAs(blob, "myProfile.svg");
+};
+</script>
+<script src="multiline.js" charset="utf-8"></script>
+</body>
+</html>
