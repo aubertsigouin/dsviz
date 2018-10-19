@@ -24,9 +24,9 @@
 
     var chart = makeLineChart(data, 'year', {
         'Professionnels en TIC (toute industrie)': {column: 'variableA'},
-        'Tous les professions (industrie en TIC)': {column: 'variableB'},
+        'Tous les professionnels (industrie en TIC)': {column: 'variableB'},
         'Professionnels en TIC (industrie en TIC)': {column: 'variableC'}
-    }, {xAxis: 'Années', yAxis: 'Nombre de professionnels'});
+    }, {xAxis: 'Années', yAxis: 'Nombre de professionnels (en milliers)'});
     chart.bind("#chart-line1");
     chart.render();
 
